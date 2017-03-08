@@ -2,14 +2,9 @@ package chess.engine.Player;
 
 import chess.engine.Alliance;
 import chess.engine.Board.Board;
-import chess.engine.Board.Tile;
-import chess.engine.Move.KingSideCastleMove;
 import chess.engine.Move.Move;
-import chess.engine.Move.QueenSideCastleMove;
 import chess.engine.Pieces.Piece;
-import chess.engine.Pieces.Rook;
 import com.google.common.collect.ImmutableList;
-import com.sun.javafx.iio.ImageMetadata;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -51,7 +46,7 @@ public class Black_Player extends Player {
                             this.calculateAttacksOnTile(6, opponentLegalMoves).isEmpty())
 
                         //TODO add the proper Move .
-                        kingCastlingMoves.add(new KingSideCastleMove(this.board,
+                        kingCastlingMoves.add(new KingCastle_Move(this.board,
                                                                         6,
                                                                         this.king,
                                                                         (Rook) rookTile.getPiece(),
@@ -72,7 +67,7 @@ public class Black_Player extends Player {
                             this.calculateAttacksOnTile(3, opponentLegalMoves).isEmpty())
 
                         //TODO add the proper Move .
-                        kingCastlingMoves.add(new QueenSideCastleMove(board,
+                        kingCastlingMoves.add(new QueenCastle_Move(board,
                                                                         2,
                                                                         this.king,
                                                                         (Rook) rookTile2.getPiece(),

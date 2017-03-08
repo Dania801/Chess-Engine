@@ -4,7 +4,7 @@ import chess.engine.Board.Board;
 import chess.engine.Pieces.Piece;
 
 
-public class AttackMove extends Move {
+public class Attack_Move extends Move {
 
     private Piece attackedPiece ;
 
@@ -15,7 +15,7 @@ public class AttackMove extends Move {
      * @param movedPiece                The moved piece
      * @param attackedPiece             The piece on the destination coordinate .
      */
-    public AttackMove(Board board, int destinationCoordinate, Piece movedPiece , Piece attackedPiece) {
+    public Attack_Move(Board board, int destinationCoordinate, Piece movedPiece , Piece attackedPiece) {
         super(board, destinationCoordinate, movedPiece);
         this.attackedPiece = attackedPiece ;
     }
@@ -36,10 +36,10 @@ public class AttackMove extends Move {
         if (other == this)
             return true ;
 
-        if (!(other instanceof AttackMove))
+        if (!(other instanceof Attack_Move))
             return false ;
 
-        AttackMove comparedAttackMove = (AttackMove) other ;
+        Attack_Move comparedAttackMove = (Attack_Move) other ;
         return super.equals(other) && attackedPiece.equals(comparedAttackMove.getAttackedPiece()) ;
     }
 

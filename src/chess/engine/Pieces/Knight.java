@@ -2,8 +2,8 @@ package chess.engine.Pieces;
 import chess.engine.Alliance;
 import chess.engine.Board.Board;
 import chess.engine.Board.BoardUtils;
-import chess.engine.Move.AttackMove;
-import chess.engine.Move.MajorMove;
+import chess.engine.Move.Attack_Move;
+import chess.engine.Move.Major_Move;
 import chess.engine.Move.Move;
 import chess.engine.Board.Tile;
 import com.google.common.collect.ImmutableList;
@@ -37,13 +37,13 @@ public class Knight extends Piece {
                 Tile candidateTile = board.getTile(candidateDestination) ;
 
                 if(! candidateTile.isTileOccupied())
-                    legalMoves.add(new MajorMove(board , candidateDestination , this)) ;
+                    legalMoves.add(new Major_Move(board , candidateDestination , this)) ;
                 else
                 {
                     Piece candidatePiece = candidateTile.getPiece() ;
                     Alliance candidateAlliance = candidatePiece.getAlliance() ;
                     if(this.getAlliance() != candidateAlliance)
-                        legalMoves.add(new AttackMove(board , candidateDestination , this , candidatePiece)) ;
+                        legalMoves.add(new Attack_Move(board , candidateDestination , this , candidatePiece)) ;
                 }
             }
         }

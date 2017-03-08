@@ -3,8 +3,8 @@ package chess.engine.Pieces;
 import chess.engine.Alliance;
 import chess.engine.Board.Board;
 import chess.engine.Board.BoardUtils;
-import chess.engine.Move.AttackMove;
-import chess.engine.Move.MajorMove;
+import chess.engine.Move.Attack_Move;
+import chess.engine.Move.Major_Move;
 import chess.engine.Move.Move;
 import chess.engine.Board.Tile;
 import com.google.common.collect.ImmutableList;
@@ -37,12 +37,12 @@ public class Bishop extends Piece{
                 if (BoardUtils.isValidCoordinate(candidateDestinationCoordinate)) {
                     Tile candidateDestinationTile = board.getTile(candidateDestinationCoordinate);
                     if (!candidateDestinationTile.isTileOccupied())
-                        legalMove.add(new MajorMove(board , candidateDestinationCoordinate , this));
+                        legalMove.add(new Major_Move(board , candidateDestinationCoordinate , this));
                     else {
                         Piece candidateDestinationPiece = candidateDestinationTile.getPiece();
                         Alliance candidateDestinationAlliance = candidateDestinationPiece.getAlliance();
                         if (this.getAlliance() != candidateDestinationAlliance)
-                            legalMove.add(new AttackMove(board , candidateDestinationCoordinate , this , candidateDestinationPiece));
+                            legalMove.add(new Attack_Move(board , candidateDestinationCoordinate , this , candidateDestinationPiece));
                     }
                     break;
                 }

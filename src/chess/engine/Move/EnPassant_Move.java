@@ -8,14 +8,14 @@ import chess.engine.Pieces.Piece;
 /**
  * Created by dania on 2/18/17.
  */
-public class PawnEnPassantAttackMove extends PawnAttackMove {
+public class EnPassant_Move extends PawnAttack_Move {
     /**
      * @param board                 The current board .
      * @param destinationCoordinate The destination that the piece wished to move to
      * @param movedPiece            The moved piece
      * @param attackedPiece         The piece on the destination coordinate .
      */
-    public PawnEnPassantAttackMove(Board board, int destinationCoordinate, Piece movedPiece, Piece attackedPiece) {
+    public EnPassant_Move(Board board, int destinationCoordinate, Piece movedPiece, Piece attackedPiece) {
         super(board, destinationCoordinate, movedPiece, attackedPiece);
     }
 
@@ -36,5 +36,11 @@ public class PawnEnPassantAttackMove extends PawnAttackMove {
         builder.setMoveMaker(board.getCurrentPlayer().getOpponent().getAlliance()) ;
 
         return builder.build() ;
+    }
+
+    @Override
+    public boolean equals(final Object other)
+    {
+        return other == this || other instanceof EnPassant_Move && super.equals(other) ;
     }
 }

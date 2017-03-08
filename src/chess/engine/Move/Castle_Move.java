@@ -9,7 +9,7 @@ import chess.engine.Pieces.Rook;
 /**
  * Created by dania on 2/18/17.
  */
-public class CastleMove extends Move{
+public class Castle_Move extends Move{
 
     final protected Rook castleRook ;
     final protected int castleRookStart ;
@@ -22,7 +22,7 @@ public class CastleMove extends Move{
      * @param destinationCoordinate The destination that the piece wishes to move to
      * @param movedPiece            The piece in the current coordinate
      */
-    public CastleMove(Board board, int destinationCoordinate, Piece movedPiece , int castleRookStart , int castleRookDest , Rook castleRook) {
+    public Castle_Move(Board board, int destinationCoordinate, Piece movedPiece , int castleRookStart , int castleRookDest , Rook castleRook) {
         super(board, destinationCoordinate, movedPiece);
         this.castleRookStart = castleRookStart ;
         this.castleRookDest = castleRookDest ;
@@ -76,10 +76,10 @@ public class CastleMove extends Move{
         if(this == other)
             return true ;
 
-        if(!(other instanceof MajorMove))
+        if(!(other instanceof Major_Move))
             return false ;
 
-        CastleMove comparedCastle = (CastleMove) other ;
+        Castle_Move comparedCastle = (Castle_Move) other ;
         return (comparedCastle.castleRook.equals(this.castleRook) &&
                 comparedCastle.castleRookStart == this.castleRookStart &&
                 comparedCastle.castleRookDest == this.castleRookDest &&

@@ -11,7 +11,7 @@ public class Board_Builder {
     Map<Integer , Piece> boardConfig ;
     //moveMaker is not initialized .
     private Alliance moveMaker ;
-    private Pawn enPassantPawn ;
+    protected Pawn enPassantPawn ;
 
     /**
      * This method sets a piece on the board .

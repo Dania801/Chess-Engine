@@ -6,9 +6,9 @@ import chess.engine.Pieces.Piece;
 /**
  * Created by dania on 2/18/17.
  */
-public class NullMove extends Move {
+public class Null_Move extends Move {
 
-    public NullMove() {
+    public Null_Move() {
         super(null, -1, null);
     }
 

@@ -2,14 +2,9 @@ package chess.engine.Player;
 
 import chess.engine.Alliance;
 import chess.engine.Board.Board;
-import chess.engine.Board.Tile;
-import chess.engine.Move.KingSideCastleMove;
 import chess.engine.Move.Move;
-import chess.engine.Move.QueenSideCastleMove;
 import chess.engine.Pieces.Piece;
-import chess.engine.Pieces.Rook;
 import com.google.common.collect.ImmutableList;
-import jdk.nashorn.internal.ir.annotations.Immutable;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -52,7 +47,7 @@ public class White_Player extends Player {
                        this.calculateAttacksOnTile(62 , opponentLegalMoves).isEmpty())
 
                         //Recheck the coordinates
-                        kingCastlingMoves.add(new KingSideCastleMove(this.board ,
+                        kingCastlingMoves.add(new KingCastle_Move(this.board ,
                                                                      62 ,
                                                                      this.king ,
                                                                      (Rook) rookTile.getPiece() ,
@@ -75,7 +70,7 @@ public class White_Player extends Player {
                         this.calculateAttacksOnTile(57 , opponentLegalMoves).isEmpty())
 
                         //TODO add the proper Move .
-                        kingCastlingMoves.add(new QueenSideCastleMove(board ,
+                        kingCastlingMoves.add(new QueenCastle_Move(board ,
                                                                       58 ,
                                                                       this.king ,
                                                                       (Rook) rookTile.getPiece() ,

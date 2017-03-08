@@ -3,21 +3,33 @@ package chess.GUI;
 import chess.engine.Board.Board;
 import chess.engine.Board.BoardUtils;
 import chess.engine.Board.Tile;
+import chess.engine.Pieces.Piece;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
+import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseButton;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.TilePane;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.sun.java.accessibility.util.AWTEventMonitor.addActionListener;
+import static com.sun.java.accessibility.util.AWTEventMonitor.addMouseListener;
+import static java.awt.event.MouseEvent.MOUSE_CLICKED;
+import static javax.swing.SwingUtilities.*;
 
 
 /**
@@ -97,6 +109,9 @@ public class TableController {
 
     //Logical Board declaration section .
     public Board gameBoard ;
+    public Tile sourceTile = null ;
+    public Tile destinationTile = null ;
+    public Piece humanMovedPiece = null ;
 
 
 
@@ -105,32 +120,21 @@ public class TableController {
         gameBoard = Board.createStandardBoard() ;
     }
 
-    public void openPGNAction(ActionEvent actionEvent) {
-        System.out.println("Boom !") ;
-    }
-
+    @FXML
     public void exitAction(ActionEvent actionEvent) {
         System.exit(0);
     }
 
-    public void assignPieceIcon(final Board board , Pane tilePane) throws IOException {
-        String[] parts = tilePane.getId().toString().split("_", 2);
-        String tile = parts[0];
-        int tileId = Integer.parseInt(parts[1]);
 
-        if(board.getTile(tileId).isTileOccupied())
-        {
-            String pieceIconPath = "" ;
-            final BufferedImage image = ImageIO.read(new File(pieceIconPath +
-                                        board.getTile(tileId).getPiece().getAlliance().toString().substring(0,1) +
-                                        board.getTile(tileId).getPiece().toString() +
-                                        ".gif" ));
+    public int getTileID(Object pane)
+    {
+        String tilePane = pane.toString() ;
+        String[] parts = tilePane.split("_", 2);
+        String tileId = parts[1];
+        int id = Integer.parseInt(tileId.substring(0,tileId.length()-1));
 
-            
-        }
+        return id ;
     }
-
-
 
 
 

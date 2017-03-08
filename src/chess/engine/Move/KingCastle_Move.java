@@ -7,7 +7,7 @@ import chess.engine.Pieces.Rook;
 /**
  * Created by dania on 2/18/17.
  */
-public class KingSideCastleMove extends CastleMove {
+public class KingCastle_Move extends Castle_Move {
     /**
      * A generic constructor for Move class
      *
@@ -15,12 +15,12 @@ public class KingSideCastleMove extends CastleMove {
      * @param destinationCoordinate The destination that the piece wishes to move to
      * @param movedPiece            The piece in the current coordinate
      */
-    public KingSideCastleMove(final Board board,
-                              final int destinationCoordinate,
-                              final Piece movedPiece ,
-                              final Rook castleRook ,
-                              final int castleRookStart ,
-                              final int castleRookDest) {
+    public KingCastle_Move(final Board board,
+                           final int destinationCoordinate,
+                           final Piece movedPiece ,
+                           final Rook castleRook ,
+                           final int castleRookStart ,
+                           final int castleRookDest) {
         super(board, destinationCoordinate, movedPiece , castleRookStart , castleRookDest , castleRook);
     }
 

@@ -5,7 +5,7 @@ import chess.engine.Board.Board_Builder;
 import chess.engine.Pieces.Pawn;
 import chess.engine.Pieces.Piece;
 
-public class PawnJump extends Move {
+public class Pawn_Jump extends Move {
     /**
      * A generic constructor for Move class
      *
@@ -13,7 +13,7 @@ public class PawnJump extends Move {
      * @param destinationCoordinate The destination that the piece wishes to move to
      * @param movedPiece            The piece in the current coordinate
      */
-    public PawnJump(Board board, int destinationCoordinate, Piece movedPiece) {
+    public Pawn_Jump(Board board, int destinationCoordinate, Piece movedPiece) {
         super(board, destinationCoordinate, movedPiece);
     }
 
@@ -40,6 +40,6 @@ public class PawnJump extends Move {
     @Override
     public boolean equals(final Object other)
     {
-        return this == other || (other instanceof PawnJump && super.equals(other)) ;
+        return this == other || (other instanceof Pawn_Jump && super.equals(other)) ;
     }
 }

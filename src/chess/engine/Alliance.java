@@ -1,5 +1,6 @@
 package chess.engine;
 
+import chess.engine.Board.BoardUtils;
 import chess.engine.Player.Player;
 
 public enum Alliance {
@@ -17,6 +18,8 @@ public enum Alliance {
             return -1;
         }
 
+        public int getOppositeDirection()  { return 1; }
+
         public boolean isBlack() {
             return false;
         }
@@ -28,11 +31,17 @@ public enum Alliance {
         public Player choosePlayer(Player whitePlayer, Player blackPlayer) {
             return whitePlayer;
         }
+
+        public boolean isPromotionSquare(int coordinate) {
+            return BoardUtils.EIGHTH_ROW[coordinate] ;
+        }
     },
     BLACK {
         public int getDirection() {
             return 1;
         }
+
+        public int getOppositeDirection() {return -1; }
 
         public boolean isBlack() {
             return true;
@@ -45,12 +54,18 @@ public enum Alliance {
         public Player choosePlayer(Player whitePlayer, Player blackPlayer) {
             return blackPlayer;
         }
+
+        public boolean isPromotionSquare(int coordinate) {
+            return BoardUtils.FIRST_ROW[coordinate] ;
+        }
     } ;
 
     /**
      * @return      1 for BLACK alliance , and -1 for WHITE alliance .
      */
     public abstract int getDirection() ;
+
+    public abstract int getOppositeDirection() ;
 
     /**
      * @return      true for BLACK alliance , and false for WHITE alliance .
@@ -63,4 +78,6 @@ public enum Alliance {
     public abstract boolean isWhite() ;
 
     public abstract Player choosePlayer(final Player whitePlayer , final Player blackPlayer) ;
+
+    public abstract boolean isPromotionSquare(int coordinate) ;
 }

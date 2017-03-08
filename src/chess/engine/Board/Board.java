@@ -12,6 +12,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import static chess.engine.Board.Tile.createTile;
+
 public class Board {
 
     private final List<Tile> gameBoard ;
@@ -22,6 +24,7 @@ public class Board {
     private final White_Player whitePlayer ;
     private final Black_Player blackPlayer ;
     private Player currentPlayer ;
+    private Piece enPassantPawn ;
 
     /**
      * A constructor that build a board from board_builder that makes everything ready for the board .
@@ -36,6 +39,7 @@ public class Board {
         this.whitePlayer = new White_Player(this, this.whiteLegalMoves , this.blackLegalMoves) ;
         this.blackPlayer = new Black_Player(this, this.blackLegalMoves , this.whiteLegalMoves) ;
         this.currentPlayer = builder.getMoveMaker().choosePlayer(this.whitePlayer , this.blackPlayer) ;
+        this.enPassantPawn = builder.enPassantPawn ;
     }
 
     private Collection<Move> calculateLegalMoves(Collection<Piece> activePieces)
@@ -78,7 +82,7 @@ public class Board {
     {
         Tile[] boardTile = new Tile[BoardUtils.TILES_NUM] ;
         for(int i = 0 ; i < BoardUtils.TILES_NUM ; i++)
-            boardTile[i] = Tile.createTile(i,builder.boardConfig.get(i)) ;
+            boardTile[i] = createTile(i,builder.boardConfig.get(i)) ;
 
         if(boardTile != null)
             return ImmutableList.copyOf(boardTile) ;
@@ -180,4 +184,6 @@ public class Board {
     }
 
     public Player getCurrentPlayer() { return this.currentPlayer ; }
+
+    public Piece getEnPassantPawn() {return this.enPassantPawn ; }
 }

@@ -8,8 +8,10 @@ public class BoardUtils {
     public static boolean[] SEVENTH_COLUMN= initiateColumn(6) ;
     public static boolean[] EIGHTH_COLUMN = initiateColumn(7) ;
 
+    public static boolean[] FIRST_ROW = initiateRow(0) ;
     public static boolean[] SECOND_ROW = initiateRow(8) ;
     public static boolean[] SEVENTH_ROW = initiateRow(48) ;
+    public static boolean[] EIGHTH_ROW = initiateRow(56) ;
 
     public final static int TILES_NUM = 64 ;
     public final static int TILES_NUM_PER_ROW = 8 ;
