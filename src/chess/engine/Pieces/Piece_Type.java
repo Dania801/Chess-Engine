@@ -1,7 +1,7 @@
 package chess.engine.Pieces;
 
 public enum Piece_Type {
-    PAWN("P") {
+    PAWN("P" , 100) {
         public boolean isKing() {
             return false;
         }
@@ -10,7 +10,7 @@ public enum Piece_Type {
             return false;
         }
     },
-    KNIGHT("N") {
+    KNIGHT("N" , 300) {
         public boolean isKing() {
             return false;
         }
@@ -19,7 +19,7 @@ public enum Piece_Type {
             return false;
         }
     },
-    BISHOP("B") {
+    BISHOP("B" , 300) {
         public boolean isKing() {
             return false;
         }
@@ -28,7 +28,7 @@ public enum Piece_Type {
             return false;
         }
     },
-    ROOK("R") {
+    ROOK("R" , 500) {
         public boolean isKing() {
             return false;
         }
@@ -37,7 +37,7 @@ public enum Piece_Type {
             return true;
         }
     },
-    QUEEN("Q") {
+    QUEEN("Q" , 900) {
         public boolean isKing() {
             return false;
         }
@@ -46,7 +46,8 @@ public enum Piece_Type {
             return false;
         }
     },
-    KING("K") {
+    KING("K" , 1000) {
+        //Recheck the value of king
         public boolean isKing() {
             return true;
         }
@@ -57,8 +58,11 @@ public enum Piece_Type {
     };
 
     private final String pieceName;
+    private final int pieceValue;
 
-    Piece_Type(final String pieceName) { this.pieceName = pieceName; }
+    Piece_Type(final String pieceName , final int pieceValue) {
+        this.pieceName = pieceName;
+        this.pieceValue = pieceValue ; }
 
     public abstract boolean isKing() ;
     public abstract boolean isRook() ;
@@ -66,6 +70,11 @@ public enum Piece_Type {
     @Override
     public String toString() {
         return this.pieceName;
+    }
+
+    public int getPieceValue()
+    {
+        return this.pieceValue ;
     }
 
 }

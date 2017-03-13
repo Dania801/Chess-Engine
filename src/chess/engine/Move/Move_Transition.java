@@ -22,5 +22,6 @@ public class Move_Transition {
     }
 
     public Move_Status getMoveStatus(){return this.moveStatus ; }
+    public Board getTransitionBoard(){return this.transitionBoard ; }
 
 }
